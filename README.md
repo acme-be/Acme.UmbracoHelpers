@@ -2,7 +2,7 @@
 # Acme.UmbracoHelpers
 Provides some tools to use with Umbraco
 
-[![NuGet Package](https://img.shields.io/nuget/v/Acme.UmbracoHelpers.svg)](https://www.nuget.org/packages/Acme.UmbracoHelpers/) [![NuGet Package](https://img.shields.io/nuget/dt/Acme.UmbracoHelpers.svg)](https://www.nuget.org/packages/Acme.UmbracoHelpers/)  [![License](https://img.shields.io/badge/license-LGPL--3.0-blue.svg)](LICENSE) 
+[![NuGet Package](https://img.shields.io/nuget/v/Acme.UmbracoHelpers.svg)](https://www.nuget.org/packages/Acme.UmbracoHelpers/) [![NuGet Package](https://img.shields.io/nuget/dt/Acme.UmbracoHelpers.svg)](https://www.nuget.org/packages/Acme.UmbracoHelpers/) [![acme MyGet Build Status](https://www.myget.org/BuildSource/Badge/acme-dev?identifier=6d29a383-caa8-4871-9a1f-2a480ac56232)](https://www.myget.org/) [![License](https://img.shields.io/badge/license-LGPL--3.0-blue.svg)](LICENSE) 
 
 ## Getting started
 Install [NuGet Package](https://www.nuget.org/packages/Acme.UmbracoHelpers/) Acme.UmbracoHelpers from Package Manager or from Package Manager Console:
