@@ -1,11 +1,8 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="UmbracoManager.cs" company="Prism">
-//  Copyright (c) Prism. All rights reserved.
+//  <copyright file="UmbracoManager.cs" company="Acme">
+//  Copyright (c) Acme. All rights reserved.
 //  </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-using System.Linq;
 
 namespace Acme.UmbracoHelpers
 {
@@ -26,7 +23,7 @@ namespace Acme.UmbracoHelpers
     using Umbraco.Web.Security;
 
     /// <summary>
-    /// Usefull methods to manage Ubmraco :)
+    /// Class to access the umbraco context outside of the views.
     /// </summary>
     public static class UmbracoManager
     {
@@ -77,7 +74,8 @@ namespace Acme.UmbracoHelpers
                 }
 
                 var iso2Lang = culture.Name.Substring(0, 2);
-                translation = dictionaryItem.Translations.SingleOrDefault(x => x.Language.CultureInfo.Name.StartsWith(iso2Lang, StringComparison.OrdinalIgnoreCase));
+                translation = dictionaryItem.Translations.SingleOrDefault(
+                    x => x.Language.CultureInfo.Name.StartsWith(iso2Lang, StringComparison.OrdinalIgnoreCase));
                 if (translation != null)
                 {
                     return translation.Value;
@@ -150,7 +148,13 @@ namespace Acme.UmbracoHelpers
         {
             var contextWrapper = new HttpContextWrapper(HttpContext.Current);
             var webSecurity = new WebSecurity(contextWrapper, ApplicationContext.Current);
-            UmbracoContext.EnsureContext(contextWrapper, ApplicationContext.Current, webSecurity, UmbracoConfig.For.UmbracoSettings(), UrlProviderResolver.Current.Providers, false);
+            UmbracoContext.EnsureContext(
+                contextWrapper,
+                ApplicationContext.Current,
+                webSecurity,
+                UmbracoConfig.For.UmbracoSettings(),
+                UrlProviderResolver.Current.Providers,
+                false);
         }
     }
 }

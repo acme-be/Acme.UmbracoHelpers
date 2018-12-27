@@ -18,7 +18,7 @@ namespace Acme.UmbracoHelpers.Extensions
     public static class PublishedContentExtensions
     {
         /// <summary>
-        /// Gets the fallback property value.
+        /// Get a property value, and if null, fall back to next one.
         /// </summary>
         /// <typeparam name="T">Type of the data</typeparam>
         /// <param name="content">The content.</param>
@@ -42,7 +42,7 @@ namespace Acme.UmbracoHelpers.Extensions
         }
 
         /// <summary>
-        /// Gets the name of the title or.
+        /// Get a property called title, or, if not found, get the name of the node.
         /// </summary>
         /// <param name="content">The content.</param>
         /// <returns>The title or name</returns>

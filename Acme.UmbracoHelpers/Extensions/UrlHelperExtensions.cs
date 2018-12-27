@@ -32,7 +32,12 @@ namespace Acme.UmbracoHelpers.Extensions
                 return path;
             }
 
-            return path + "?v=" + fileInfo.LastWriteTimeUtc.Ticks;
+            if (path.IndexOf("?", StringComparison.Ordinal) == -1)
+            {
+                return path + "?v=" + fileInfo.LastWriteTimeUtc.Ticks;
+            }
+
+            return path + "&v=" + fileInfo.LastWriteTimeUtc.Ticks;
         }
     }
 }
