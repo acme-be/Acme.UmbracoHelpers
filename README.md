@@ -1,6 +1,6 @@
 
-# Acme.Core.Extensions
-Useful extensions for .net framework types. This is a pure utility package and should be kept as simple as possible but also as powerful as possible :)
+# Acme.UmbracoHelpers
+Provides some tools to use with Umbraco
 
 [![NuGet Package](https://img.shields.io/nuget/v/Acme.UmbracoHelpers.svg)](https://www.nuget.org/packages/Acme.UmbracoHelpers/) [![NuGet Package](https://img.shields.io/nuget/dt/Acme.UmbracoHelpers.svg)](https://www.nuget.org/packages/Acme.UmbracoHelpers/)  [![License](https://img.shields.io/badge/license-LGPL--3.0-blue.svg)](LICENSE) 
 
