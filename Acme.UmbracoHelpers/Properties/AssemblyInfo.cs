@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Acme.UmbracoHelpers")]
 [assembly: AssemblyDescription("Provides some tools to use with Umbraco.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ACME")]
+[assembly: AssemblyCompany("Simon Baudart")]
 [assembly: AssemblyProduct("Acme.UmbracoHelpers")]
 [assembly: AssemblyCopyright("Copyright ACME ©  2018")]
 [assembly: AssemblyTrademark("")]
