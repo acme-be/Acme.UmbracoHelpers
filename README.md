@@ -1,4 +1,5 @@
 
+
 # Acme.UmbracoHelpers
 Provides some tools to use with Umbraco
 
@@ -11,6 +12,8 @@ PM> Install-Package Acme.UmbracoHelpers
 ```
 
 ## Changes
+### 1.1.0
+* Add the WebpImageProcessorRedirectModule
 ### 1.0.0
 * Create the base package
 
@@ -43,3 +46,8 @@ Get a property called title, or, if not found, get the name of the node.
 Get the path in parameters with some kind of CRC, if the file exists, append a version.
 ## UmbracoManager
 Class to access the umbraco context outside of the views.
+## WebpImageProcessorRedirectModule
+Module that generate a redirect (301) to an url with a WebP format in image processor.
+Add this line to the modules section of your web.config : 
+
+    <add name="WebpImageProcessorRedirectModule" type="Acme.UmbracoHelpers.Modules.WebpImageProcessorRedirectModule, Acme.UmbracoHelpers" />
