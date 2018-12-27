@@ -224,6 +224,7 @@
     <Compile Include="Extensions\PublishedContentExtensions.cs" />
     <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="EnsureUmbracoContext.cs" />
+    <Compile Include="Images\WebpHelper.cs" />
     <Compile Include="Modules\WebpImageProcessorRedirectModule.cs" />
     <Compile Include="UmbracoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

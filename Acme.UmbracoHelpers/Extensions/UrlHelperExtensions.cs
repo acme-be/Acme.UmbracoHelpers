@@ -9,7 +9,10 @@ namespace Acme.UmbracoHelpers.Extensions
     using System;
     using System.IO;
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
+
+    using Acme.UmbracoHelpers.Images;
 
     /// <summary>
     /// Add extensions to the url helper
@@ -38,6 +41,24 @@ namespace Acme.UmbracoHelpers.Extensions
             }
 
             return path + "&v=" + fileInfo.LastWriteTimeUtc.Ticks;
+        }
+
+        /// <summary>
+        /// Get the path with adding a crc to invalidate client cache, add the format web p if available
+        /// </summary>
+        /// <param name="helper">The current UrlHelper</param>
+        /// <param name="path">The path of the file</param>
+        /// <returns> path with adding a crc to invalidate client cache</returns>
+        public static string GetUrlWithCrcAndWebpFormat(this UrlHelper helper, string path)
+        {
+            var url = helper.GetPathWithCrc(path);
+
+            if (WebpHelper.IsWebpSupported(HttpContext.Current, false))
+            {
+                url = $"{url}{(url.Contains("?") ? "&" : "?")}format=webp";
+            }
+
+            return url;
         }
     }
 }
