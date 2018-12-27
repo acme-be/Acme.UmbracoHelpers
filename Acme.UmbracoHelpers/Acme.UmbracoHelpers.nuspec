@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/simonbaudart/Acme.UmbracoHelpers/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/simonbaudart/Acme.UmbracoHelpers</projectUrl>
+    <iconUrl>https://github.com/simonbaudart/Acme.UmbracoHelpers/blob/master/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2018</copyright>
+    <tags>Acme Umbraco Helpers</tags>
+  </metadata>
+</package>
