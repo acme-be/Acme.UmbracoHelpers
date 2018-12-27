@@ -41,9 +41,11 @@ Convert the relative Uri into an absolute one.
 Get a property value, and if null, fall back to next one.
 ### GetTitleOrName
 Get a property called title, or, if not found, get the name of the node.
+### GetCropUrlWithWebp
+Get the crop url and and the webp format if browser support it.
 ## UrlHelperExtensions
-### GetPathWithCrc
-Get the path in parameters with some kind of CRC, if the file exists, append a version.
+### GetPathWithCrc - GetUrlWithCrcAndWebpFormat
+Get the path in parameters with some kind of CRC, if the file exists, append a version. Can be used with the webp format to auto add the format
 ## UmbracoManager
 Class to access the umbraco context outside of the views.
 ## WebpImageProcessorRedirectModule
