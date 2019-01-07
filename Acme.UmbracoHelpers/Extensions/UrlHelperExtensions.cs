@@ -12,6 +12,7 @@ namespace Acme.UmbracoHelpers.Extensions
     using System.Web;
     using System.Web.Mvc;
 
+    using Acme.Core.Extensions;
     using Acme.UmbracoHelpers.Images;
 
     /// <summary>
@@ -19,6 +20,22 @@ namespace Acme.UmbracoHelpers.Extensions
     /// </summary>
     public static class UrlHelperExtensions
     {
+        /// <summary>Appends the webp format.</summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="url">The URL.</param>
+        /// <returns>The url with the webformat</returns>
+        public static string AppendWebpFormat(this UrlHelper helper, string url)
+        {
+            url.ThrowIfNull(nameof(url));
+
+            if (WebpHelper.IsWebpSupported(HttpContext.Current, false))
+            {
+                url = $"{url}{(url.Contains("?") ? "&" : "?")}format=webp";
+            }
+
+            return url;
+        }
+
         /// <summary>
         /// Get the path with adding a crc to invalidate client cache
         /// </summary>
@@ -52,13 +69,7 @@ namespace Acme.UmbracoHelpers.Extensions
         public static string GetUrlWithCrcAndWebpFormat(this UrlHelper helper, string path)
         {
             var url = helper.GetPathWithCrc(path);
-
-            if (WebpHelper.IsWebpSupported(HttpContext.Current, false))
-            {
-                url = $"{url}{(url.Contains("?") ? "&" : "?")}format=webp";
-            }
-
-            return url;
+            return helper.AppendWebpFormat(url);
         }
     }
 }
