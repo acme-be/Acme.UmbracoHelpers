@@ -17,7 +17,7 @@ namespace Acme.UmbracoHelpers.Images
     /// <summary>
     /// Provides some help for webp
     /// </summary>
-    internal static class WebpHelper
+    public static class WebpHelper
     {
         /// <summary>
         /// Availables extensions for webp
