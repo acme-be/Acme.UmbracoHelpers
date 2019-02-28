@@ -13,7 +13,7 @@ namespace Acme.UmbracoHelpers.Extensions
 
     using Acme.UmbracoHelpers.Images;
 
-    using Umbraco.Core.Models;
+    using Umbraco.Core.Models.PublishedContent;
     using Umbraco.Web;
     using Umbraco.Web.Models;
 
@@ -54,36 +54,9 @@ namespace Acme.UmbracoHelpers.Extensions
         /// The <see cref="T:System.String" />.
         /// </returns>
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed. Suppression is OK here.")]
-        public static string GetCropUrlWithWebp(
-            this IPublishedContent mediaItem,
-            int? width = null,
-            int? height = null,
-            string propertyAlias = "umbracoFile",
-            string cropAlias = null,
-            int? quality = null,
-            ImageCropMode? imageCropMode = null,
-            ImageCropAnchor? imageCropAnchor = null,
-            bool preferFocalPoint = false,
-            bool useCropDimensions = false,
-            bool cacheBuster = true,
-            string furtherOptions = null,
-            ImageCropRatioMode? ratioMode = null,
-            bool upScale = true)
+        public static string GetCropUrlWithWebp(this IPublishedContent mediaItem, int? width = null, int? height = null, string propertyAlias = "umbracoFile", string cropAlias = null, int? quality = null, ImageCropMode? imageCropMode = null, ImageCropAnchor? imageCropAnchor = null, bool preferFocalPoint = false, bool useCropDimensions = false, bool cacheBuster = true, string furtherOptions = null, ImageCropRatioMode? ratioMode = null, bool upScale = true)
         {
-            var cropUrl = mediaItem.GetCropUrl(
-                width,
-                height,
-                propertyAlias,
-                cropAlias,
-                quality,
-                imageCropMode,
-                imageCropAnchor,
-                preferFocalPoint,
-                useCropDimensions,
-                cacheBuster,
-                furtherOptions,
-                ratioMode,
-                upScale);
+            var cropUrl = mediaItem.GetCropUrl(width, height, propertyAlias, cropAlias, quality, imageCropMode, imageCropAnchor, preferFocalPoint, useCropDimensions, cacheBuster, furtherOptions, ratioMode, upScale);
 
             if (WebpHelper.IsWebpSupported(HttpContext.Current, false) && !WebpHelper.IsFormatSpecified(HttpContext.Current))
             {
@@ -91,30 +64,6 @@ namespace Acme.UmbracoHelpers.Extensions
             }
 
             return cropUrl;
-        }
-
-        /// <summary>
-        /// Get a property value, and if null, fall back to next one.
-        /// </summary>
-        /// <typeparam name="T">Type of the data</typeparam>
-        /// <param name="content">The content.</param>
-        /// <param name="propertyNames">The property names.</param>
-        /// <returns>The property value</returns>
-        public static T GetFallbackPropertyValue<T>(this IPublishedContent content, params string[] propertyNames)
-        {
-            var value = default(T);
-
-            foreach (var propertyName in propertyNames)
-            {
-                value = content.GetPropertyValue<T>(propertyName);
-
-                if (value != null && !value.Equals(default(T)))
-                {
-                    return value;
-                }
-            }
-
-            return value;
         }
 
         /// <summary>
@@ -129,7 +78,7 @@ namespace Acme.UmbracoHelpers.Extensions
                 return content.Name;
             }
 
-            var title = content.GetPropertyValue<string>("title");
+            var title = content.Value<string>("title");
 
             if (string.IsNullOrWhiteSpace(title))
             {
